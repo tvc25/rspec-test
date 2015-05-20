@@ -36,31 +36,32 @@ end
 # discard the first 3 elements of an array, 
 # e.g. [1, 2, 3, 4, 5, 6] becomes [4, 5, 6]
 def all_elements_except_first_3(array)
-  
+  array.drop(3)
 end
 
 # add an element to the beginning of an array
 def add_element_to_beginning_of_array(array, element)
-  
+  array.unshift(1)
 end
 
 # sort an array of words by their last letter, e.g.
 # ['sky', 'puma', 'maker'] becomes ['puma', 'maker', 'sky']
 def array_sort_by_last_letter_of_word(array)
-  
+  array.sort_by { |word| word[-1] }
 end
 
 # cut strings in half, and return the first half, e.g.
 # 'banana' becomes 'ban'. If the string is an odd number of letters
 # round up - so 'apple' becomes 'app'
 def get_first_half_of_string(string)
-  
+  split = string.length / 2
+    string.length.even? ? string[0..split-1] : string[0..split]
 end
 
 # turn a positive integer into a negative integer. A negative integer
 # stays negative
 def make_numbers_negative(number)
-  
+  -(number.Abs)
 end
 
 # turn an array of numbers into two arrays of numbers, one an array of 
@@ -81,29 +82,29 @@ end
 
 # return the shortest word in an array
 def shortest_word_in_array(array)
-  
+  array.min_by(&:length)
 end
 
 # return the longest word in an array
 def longest_word_in_array(array)
-  
+  array.max_by(&:length)
 end
 
 # add up all the numbers in an array, so [1, 3, 5, 6]
 # returns 15
 def total_of_array(array)
-  
+  array.map(&:to_i).reduce(:+)
 end
 
 # turn an array into itself repeated twice. So [1, 2, 3]
 # becomes [1, 2, 3, 1, 2, 3]
 def double_array(array)
-  
+  array+=array
 end
 
 # convert a symbol into a string
 def turn_symbol_into_string(symbol)
-  
+  symbol.to_s
 end
 
 # get the average from an array, rounded to the nearest integer
@@ -124,7 +125,7 @@ end
 # pairing up elements. e.g. ['a', 'b', 'c', 'd'] becomes
 # {'a' => 'b', 'c' => 'd'}
 def convert_array_to_a_hash(array)
-  
+  Hash[*array]
 end
 
 # get all the letters used in an array of words and return
@@ -132,7 +133,7 @@ end
 # . e.g. the array ['cat', 'dog', 'fish'] becomes
 # ['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']
 def get_all_letters_in_array_of_words(array)
-  
+  array.chars
 end
 
 # swap the keys and values in a hash. e.g.
@@ -158,25 +159,25 @@ end
 # round up a float up and convert it to an Integer,
 # so 3.214 becomes 4
 def round_up_number(float)
-  
+  float.ceil
 end
 
 # round down a float up and convert it to an Integer,
 # so 9.52 becomes 9
 def round_down_number(float)
-  
+  float.floor
 end
 
 # take a date and format it like dd/mm/yyyy, so Halloween 2013
 # becomes 31/10/2013
 def format_date_nicely(date)
-  
+  date.now.strftime("%m/%d/%Y")
 end
 
 # get the domain name *without* the .ly (or .com, .co etc) part, from an email address
 # so jeremy@generalassemb.ly becomes generalassemb.ly
 def get_domain_name_from_email_address(email)
-  
+  email.gsub(/.+@([^.]+).+/, '\1')
 end
 
 # capitalize the first letter in each word of a string, 
@@ -209,12 +210,15 @@ end
 
 # get the square root of a number
 def square_root_of(number)
-  
+  Math.sqrt(number)
 end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
-
+  file = File.open(file_path, 'r')
+    array_of_words = []
+    file.each_line {|line| array_of_words << line}
+    array_of_words.first.split(' ').count
 end
 
 # --- tougher ones ---
@@ -247,7 +251,7 @@ end
 # and 1 that is 4 letters long. Return it as a hash in the format
 # word_length => count, e.g. {2 => 1, 3 => 5, 4 => 1}
 def count_words_of_each_length_in_a_file(file_path)
-  
+  words =words.split(' ').inject(Hash.new(0)) do |hash, word|
 end
 
 # implement fizzbuzz without modulo, i.e. the % method

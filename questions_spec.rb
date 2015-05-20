@@ -35,22 +35,22 @@ describe 'Ruby Homework' do
     expect(sorted).to eq [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
   end
 
-  it 'all_elements_except_first_3' do
+  fit 'all_elements_except_first_3' do
     n = all_elements_except_first_3 [1, 2, 3, 4, 5, 6, 7]
     expect(n).to eq [4, 5, 6, 7]
   end
 
-  it 'add_element_to_beginning_of_array' do
+  fit 'add_element_to_beginning_of_array' do
     n = add_element_to_beginning_of_array [2, 3, 4, 5], 1
     expect(n).to eq [1, 2, 3, 4, 5]
   end
 
-  it 'array_sort_by_last_letter_of_word' do
+  fit 'array_sort_by_last_letter_of_word' do
     n = array_sort_by_last_letter_of_word ['sky', 'puma', 'maker']
     expect(n).to eq ['puma', 'maker', 'sky']
   end
 
-  it 'get_first_half_of_string' do
+  fit 'get_first_half_of_string' do
     a = get_first_half_of_string 'banana'
     b = get_first_half_of_string 'apple'
 
@@ -76,27 +76,27 @@ describe 'Ruby Homework' do
     expect(n).to eq 3
   end
 
-  it 'shortest_word_in_array' do
+  fit 'shortest_word_in_array' do
     n = shortest_word_in_array %w(here is a bunch of words of different lengths)
     expect(n).to eq 'a'
   end
 
-  it 'longest_word_in_array' do
+  fit 'longest_word_in_array' do
     n = longest_word_in_array %w(here is a bunch of words of different lengths)
     expect(n).to eq 'different'
   end
 
-  it 'total_of_array' do
+  fit 'total_of_array' do
     n = total_of_array [1, 3, 5, 6, 2, 8]
     expect(n).to eq 25
   end
 
-  it 'double_array' do
+  fit 'double_array' do
     n = double_array [1, 2, 3]
     expect(n).to eq [1, 2, 3, 1, 2, 3]
   end
 
-  it 'turn_symbol_into_string' do
+  fit 'turn_symbol_into_string' do
     n = turn_symbol_into_string 'foobar'
     expect(n).to eq 'foobar'
   end
@@ -111,12 +111,12 @@ describe 'Ruby Homework' do
     expect(n).to eq [1, 3, 5, 4, 1, 2]
   end
 
-  it 'convert_array_to_a_hash' do
+  fit 'convert_array_to_a_hash' do
     n = convert_array_to_a_hash ['a', 'b', 'c', 'd']
     expect(n).to eq({'a' => 'b', 'c' => 'd'})
   end
 
-  it 'get_all_letters_in_array_of_words' do
+  fit 'get_all_letters_in_array_of_words' do
     n = get_all_letters_in_array_of_words ['cat', 'dog', 'fish']
     expect(n).to eq ['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']
   end
@@ -136,22 +136,22 @@ describe 'Ruby Homework' do
     expect(n).to eq 'ello ohnoe'
   end
 
-  it 'round_up_number' do
+  fit 'round_up_number' do
     n = round_up_number 3.142
     expect(n).to eq 4
   end
 
-  it 'round_down_number' do
+  fit 'round_down_number' do
     n = round_down_number 4.9
     expect(n).to eq 4
   end
 
-  it 'format_date_nicely' do
+  fit 'format_date_nicely' do
     n = format_date_nicely Time.new(2013, 10, 31)
     expect(n).to eq '31/10/2013'
   end
 
-  it 'get_domain_name_from_email_address' do
+  fit 'get_domain_name_from_email_address' do
     n = get_domain_name_from_email_address 'jeremy@generalassemb.ly'
     expect(n).to eq 'generalassemb.ly'
   end
@@ -161,7 +161,7 @@ describe 'Ruby Homework' do
     expect(n).to eq 'The Lion the Witch and the Wardrobe'
   end
 
-  it 'check_a_string_for_special_characters' do
+  fit 'check_a_string_for_special_characters' do
     a = check_a_string_for_special_characters 'ABCdef123'
     b = check_a_string_for_special_characters 'ABC@def123!'
 
@@ -182,7 +182,7 @@ describe 'Ruby Homework' do
     expect(b).to be_truthy
   end
 
-  it 'square_root_of' do
+  fit 'square_root_of' do
     a = square_root_of 9
     b = square_root_of 3
     expect(a).to eq 3.0
